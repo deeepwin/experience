@@ -24,7 +24,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Blog to share experiences on deep learning.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  deeepwing
+twitter_username: jekyllrb
+github_username:  deeepwin
 
 # Build settings
 theme: jekyll-theme-midnight
