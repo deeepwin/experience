@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "CPU and GPU Selection for Reinforcement Learning"
+date:   2021-05-10 18:59:37 +0100
+categories: hardware
+---
+
+# Table of Content
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+# My Experience in Selecting CPU and GPU for a Reinforcement Learning Workstation
+
+Time to read this post: 10 min
+
+## Key Learnings
+
+* Number of CPU cores matter the most in reinforcement learning. Invest enough money into a CPU with lots of cores.
+* CPU memory size matters. If you parallize training with separate processess, each one will load Tensorflow and require memory.
+* Use a GPU with a lot of memory. 11GB is minimum. Memory is the first limitation on a GPU, not flops in RL.
+
+## Challenge
+
+If you are serious about machine learning and in particular reinforcement learning you will come to the point to decide on the hardware. 
+Maybe you start with some free services like Colab or Google Cloud Services (200h free). Maybe you are fine to pay on the go. Nevertheless, after
+fiddling around with some online services I ended up in frustration and decided to build my own deep learning workstation. I wanted to 
+unterstand things in detail, fast reaction times when loading software and rather pay upfront than never knowing how much it will cost be in the end.
+
+But which workstation shall I choose? What CPU? An AMD Threadripper? What GPU will be sufficient?
+
+## References
+
+Very helpful ressources:
+
+[Which GPU(s) to Get for Deep Learning: My Experience and Advice for Using GPUs in Deep Learning](https://timdettmers.com/2020/09/07/which-gpu-for-deep-learning/)
+[Why Don't You Build a RL Computer?](https://rivesunder.gitlab.io/rl/2020/04/04/build_a_rl_pc_1.html)
+
+
+## My Deep Learning Workstation 
+
+My current setup (good enough for the moment):
+
+* AMD Ryzen 9 3900X (12 Cores, 3.80GHz, 64 MB)
+* Asus Prime X570-PRO, AM4 Socket (upgradable to AMD Ryzen 9 5900X)
+* RTX 2080 Ti 11GB
+* Memory G.Skill Ripjaws V, DDR4, 2 x 16GB (current limitation, but easy to extend)
+
+Total Costs including case, power supply, cooler and SSD: 2400 USD (2200 CHF)
+
+![My deep learning workstation ](assets/workstation.jpg)
+
+
+## This is a new title
