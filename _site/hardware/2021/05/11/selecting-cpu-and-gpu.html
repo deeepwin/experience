@@ -103,7 +103,7 @@ Maybe you start with some free services like Colab or you use a paid service lik
 
 <p>Total Costs including case, power supply, cooler and SSD: ~2200 CHF (2400 USD)</p>
 
-<p><img src="https://deeepwin.github.io/assets/workstation.jpg" alt="My deep learning workstation " /></p>
+<p><img src="https://deeepwin.github.io/experience/assets/workstation.jpg" alt="My deep learning workstation " /></p>
 
 <p>Nice. Looks small, but is still extendable.</p>
 
@@ -134,11 +134,11 @@ a RTX 2080 Ti. I spent 1000 CHF on the graphics card. But I was very excited to 
 
 <p>The following picture shows the mapping of CPU and GPU to the reinforcement learning functions very nicely</p>
 
-<p><img src="https://deeepwin.github.io/assets/cpu_gpu_mapping.png" alt="Mapping of CPU and GPU" class="center-image" /></p>
+<p><img src="https://deeepwin.github.io/experience/assets/cpu_gpu_mapping.png" alt="Mapping of CPU and GPU" class="center-image" /></p>
 
 <p>To better understand how Tensorflow assigns the ops use <a href="https://www.tensorflow.org/guide/profiler">Tensorflow Profiler</a>. This is a screen shot from the <em>Trace View</em> window on Tensorboard.</p>
 
-<p><img src="https://deeepwin.github.io/assets/trace_view_1.jpg" alt="Trace with gaps" /></p>
+<p><img src="https://deeepwin.github.io/experience/assets/trace_view_1.jpg" alt="Trace with gaps" /></p>
 
 <p>Most Tensorflow ops run on GPU, but there is a big white gap in the chart of 2.7ms. This is the time the CPU spends in <code class="language-plaintext highlighter-rouge">step()</code>. As long as <code class="language-plaintext highlighter-rouge">predict_action()</code> and <code class="language-plaintext highlighter-rouge">step()</code> are run in sequence, the GPU cannot be utilized. That means you have to <strong>parallelize</strong> your training. You can only parallelize your training if you have multiple CPU cores.</p>
 
@@ -180,11 +180,11 @@ Non-trainable params: 142
 
 <p>In the mean time my reinforcement learning project is running at approximately 35% CPU and 35% GPU load. Not bad. I was able to balance the load symmetrically. However, my CPU memory is at its limit. I guess it is time to buy some more memory :-).</p>
 
-<p><img src="https://deeepwin.github.io/assets/cpu_memory_1.jpg" alt="CPU Utilization" /></p>
+<p><img src="https://deeepwin.github.io/experience/assets/cpu_memory_1.jpg" alt="CPU Utilization" /></p>
 
 <p>Command: <code class="language-plaintext highlighter-rouge">htop</code></p>
 
-<p><img src="https://deeepwin.github.io/assets/gpu_1.jpg" alt="GPU Utilization" /></p>
+<p><img src="https://deeepwin.github.io/experience/assets/gpu_1.jpg" alt="GPU Utilization" /></p>
 
 <p>Command: <code class="language-plaintext highlighter-rouge">nvidia-smi</code></p>
 
