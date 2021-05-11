@@ -34,6 +34,7 @@ github_username: deeepwin
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 future: true
 
