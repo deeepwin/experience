@@ -44,7 +44,7 @@ My current setup (good enough for the moment):
 
 Total Costs including case, power supply, cooler and SSD: ~2200 CHF (2400 USD)
 
-![My deep learning workstation ](https://github.com/deeepwin/experience/tree/main/assets/workstation.jpg)
+![My deep learning workstation ]({{ site.url }}/assets/workstation.jpg)
 
 Nice. Looks small, but is still extendable.
 
@@ -76,11 +76,11 @@ A big portion of your code will run on CPU, unless you code up everything in Ten
 
 The following picture shows the mapping of CPU and GPU to the reinforcement learning functions very nicely
 
-![Mapping of CPU and GPU](https://github.com/deeepwin/experience/tree/main/assets/cpu_gpu_mapping.png){: .center-image }
+![Mapping of CPU and GPU]({{ site.url }}/assets/cpu_gpu_mapping.png){: .center-image }
 
 To better understand how Tensorflow assigns the ops use [Tensorflow Profiler](https://www.tensorflow.org/guide/profiler). This is a screen shot from the *Trace View* window on Tensorboard.
 
-![Trace with gaps](https://github.com/deeepwin/experience/tree/main/assets/trace_view_1.jpg)
+![Trace with gaps]({{ site.url }}/assets/trace_view_1.jpg)
 
 Most Tensorflow ops run on GPU, but there is a big white gap in the chart of 2.7ms. This is the time the CPU spends in `step()`. As long as `predict_action()` and `step()` are run in sequence, the GPU cannot be utilized. That means you have to **parallelize** your training. You can only parallelize your training if you have multiple CPU cores.
 
@@ -123,11 +123,11 @@ I decided to choose the hardware in stages, starting with a decent CPU and main 
 In the mean time my reinforcement learning project is running at approximately 35% CPU and 35% GPU load. Not bad. I was able to balance the load symmetrically. However, my CPU memory is at its limit. I guess it is time to buy some more memory :-).
 
 
-![CPU Utilization](https://github.com/deeepwin/experience/tree/main/assets/cpu_memory_1.jpg)
+![CPU Utilization]({{ site.url }}/assets/cpu_memory_1.jpg)
 
 Command: `htop`
 
-![GPU Utilization](https://github.com/deeepwin/experience/tree/main/assets/gpu_1.jpg)
+![GPU Utilization]({{ site.url }}/assets/gpu_1.jpg)
 
 Command: `nvidia-smi`
 
