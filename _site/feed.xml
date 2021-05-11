@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://deeepwin.github.io/experience/feed.xml" rel="self" type="application/atom+xml" /><link href="https://deeepwin.github.io/experience/" rel="alternate" type="text/html" /><updated>2021-05-11T17:25:25+02:00</updated><id>https://deeepwin.github.io/experience/feed.xml</id><title type="html">Experiences in Deep Learning</title><subtitle>Sharing deep learning experiences.</subtitle><entry><title type="html">Selecting CPU and GPU for a Reinforcement Learning Workstation</title><link href="https://deeepwin.github.io/experience/hardware/2021/05/11/selecting-cpu-and-gpu.html" rel="alternate" type="text/html" title="Selecting CPU and GPU for a Reinforcement Learning Workstation" /><published>2021-05-11T19:59:37+02:00</published><updated>2021-05-11T19:59:37+02:00</updated><id>https://deeepwin.github.io/experience/hardware/2021/05/11/selecting-cpu-and-gpu</id><content type="html" xml:base="https://deeepwin.github.io/experience/hardware/2021/05/11/selecting-cpu-and-gpu.html">&lt;p&gt;Time to read this post: 5 mins&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://deeepwin.github.io/experience/feed.xml" rel="self" type="application/atom+xml" /><link href="https://deeepwin.github.io/experience/" rel="alternate" type="text/html" /><updated>2021-05-11T17:44:01+02:00</updated><id>https://deeepwin.github.io/experience/feed.xml</id><title type="html">Experiences in Deep Learning</title><subtitle>Sharing deep learning experiences.</subtitle><entry><title type="html">Selecting CPU and GPU for a Reinforcement Learning Workstation</title><link href="https://deeepwin.github.io/experience/hardware/2021/05/11/selecting-cpu-and-gpu.html" rel="alternate" type="text/html" title="Selecting CPU and GPU for a Reinforcement Learning Workstation" /><published>2021-05-11T19:59:37+02:00</published><updated>2021-05-11T19:59:37+02:00</updated><id>https://deeepwin.github.io/experience/hardware/2021/05/11/selecting-cpu-and-gpu</id><content type="html" xml:base="https://deeepwin.github.io/experience/hardware/2021/05/11/selecting-cpu-and-gpu.html">&lt;p&gt;Time to read this post: 5 mins&lt;/p&gt;
 
 &lt;h2 id=&quot;table-of-content&quot;&gt;Table of Content&lt;/h2&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;
@@ -49,7 +49,7 @@ Maybe you start with some free services like Colab or you use a paid service lik
 
 &lt;p&gt;Total Costs including case, power supply, cooler and SSD: ~2200 CHF (2400 USD)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/workstation.jpg&quot; alt=&quot;My deep learning workstation &quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/workstation.jpg&quot; alt=&quot;My deep learning workstation &quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Nice. Looks small, but is still extendable.&lt;/p&gt;
 
@@ -80,11 +80,11 @@ a RTX 2080 Ti. I spent 1000 CHF on the graphics card. But I was very excited to 
 
 &lt;p&gt;The following picture shows the mapping of CPU and GPU to the reinforcement learning functions very nicely&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/cpu_gpu_mapping.png&quot; alt=&quot;Mapping of CPU and GPU&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/cpu_gpu_mapping.png&quot; alt=&quot;Mapping of CPU and GPU&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;To better understand how Tensorflow assigns the ops use &lt;a href=&quot;https://www.tensorflow.org/guide/profiler&quot;&gt;Tensorflow Profiler&lt;/a&gt;. This is a screen shot from the &lt;em&gt;Trace View&lt;/em&gt; window on Tensorboard.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/trace_view_1.jpg&quot; alt=&quot;Trace with gaps&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/trace_view_1.jpg&quot; alt=&quot;Trace with gaps&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Most Tensorflow ops run on GPU, but there is a big white gap in the chart of 2.7ms. This is the time the CPU spends in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;step()&lt;/code&gt;. As long as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;predict_action()&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;step()&lt;/code&gt; are run in sequence, the GPU cannot be utilized. That means you have to &lt;strong&gt;parallelize&lt;/strong&gt; your training. You can only parallelize your training if you have multiple CPU cores.&lt;/p&gt;
 
@@ -126,11 +126,11 @@ Non-trainable params: 142
 
 &lt;p&gt;In the mean time my reinforcement learning project is running at approximately 35% CPU and 35% GPU load. Not bad. I was able to balance the load symmetrically. However, my CPU memory is at its limit. I guess it is time to buy some more memory :-).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/cpu_memory_1.jpg&quot; alt=&quot;CPU Utilization&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/cpu_memory_1.jpg&quot; alt=&quot;CPU Utilization&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Command: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;htop&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/gpu_1.jpg&quot; alt=&quot;GPU Utilization&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/gpu_1.jpg&quot; alt=&quot;GPU Utilization&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Command: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nvidia-smi&lt;/code&gt;&lt;/p&gt;
 
