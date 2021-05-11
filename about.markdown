@@ -6,10 +6,10 @@ permalink: /about/
 
 Hi,
 
-welcome to my blog. I am a machine learning enthuasist and would like to share some of my experience with you on this blog. I am very grateful about all the information people put on the internet, from which I can take profit. This blog is meant to give a little bit back.
+welcome to my blog. I am a machine learning enthusiast and would like to share some of my experience with you on this blog. I am very grateful about all the helpful information people place on the internet. This blog is meant to give a little bit back.
 
 Thank you all.
 
-Martin.
+![me](/assets/me.jpg)
 
 [jekyll-organization]: https://github.com/jekyll

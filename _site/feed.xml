@@ -1,17 +1,217 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://deeepwin.github.io/experience/feed.xml" rel="self" type="application/atom+xml" /><link href="https://deeepwin.github.io/experience/" rel="alternate" type="text/html" /><updated>2021-05-09T19:28:54+02:00</updated><id>https://deeepwin.github.io/experience/feed.xml</id><title type="html">Experiences in Deep Learning</title><subtitle>Blog with deep learning experiences.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="https://deeepwin.github.io/experience/jekyll/update/2021/05/09/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-05-09T15:35:37+02:00</published><updated>2021-05-09T15:35:37+02:00</updated><id>https://deeepwin.github.io/experience/jekyll/update/2021/05/09/welcome-to-jekyll</id><content type="html" xml:base="https://deeepwin.github.io/experience/jekyll/update/2021/05/09/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://deeepwin.github.io/experience/feed.xml" rel="self" type="application/atom+xml" /><link href="https://deeepwin.github.io/experience/" rel="alternate" type="text/html" /><updated>2021-05-11T17:25:25+02:00</updated><id>https://deeepwin.github.io/experience/feed.xml</id><title type="html">Experiences in Deep Learning</title><subtitle>Sharing deep learning experiences.</subtitle><entry><title type="html">Selecting CPU and GPU for a Reinforcement Learning Workstation</title><link href="https://deeepwin.github.io/experience/hardware/2021/05/11/selecting-cpu-and-gpu.html" rel="alternate" type="text/html" title="Selecting CPU and GPU for a Reinforcement Learning Workstation" /><published>2021-05-11T19:59:37+02:00</published><updated>2021-05-11T19:59:37+02:00</updated><id>https://deeepwin.github.io/experience/hardware/2021/05/11/selecting-cpu-and-gpu</id><content type="html" xml:base="https://deeepwin.github.io/experience/hardware/2021/05/11/selecting-cpu-and-gpu.html">&lt;p&gt;Time to read this post: 5 mins&lt;/p&gt;
 
-&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
+&lt;h2 id=&quot;table-of-content&quot;&gt;Table of Content&lt;/h2&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#table-of-content&quot; id=&quot;markdown-toc-table-of-content&quot;&gt;Table of Content&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#learnings&quot; id=&quot;markdown-toc-learnings&quot;&gt;Learnings&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#challenge&quot; id=&quot;markdown-toc-challenge&quot;&gt;Challenge&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#references&quot; id=&quot;markdown-toc-references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#workstation&quot; id=&quot;markdown-toc-workstation&quot;&gt;Workstation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#in-detail&quot; id=&quot;markdown-toc-in-detail&quot;&gt;In Detail&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#result&quot; id=&quot;markdown-toc-result&quot;&gt;Result&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;learnings&quot;&gt;Learnings&lt;/h2&gt;
 
-&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Number of CPU cores matter the most in reinforcement learning. As more cores you have as better.&lt;/li&gt;
+  &lt;li&gt;Use a GPU with a lot of memory. 11GB is minimum. In RL memory is the first limitation on the GPU, not flops.&lt;/li&gt;
+  &lt;li&gt;CPU memory size matters. Especially, if you parallelize training to utilize CPU and GPU fully.&lt;/li&gt;
+  &lt;li&gt;A very powerful GPU is only necessary with larger deep learning models. In RL models are typically small.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;h2 id=&quot;challenge&quot;&gt;Challenge&lt;/h2&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;If you are serious about machine learning and in particular reinforcement learning you will come to the point to decide on the hardware. 
+Maybe you start with some free services like Colab or you use a paid service like Google Cloud Services. I have tried those, but was not happy with the interaction. Also, I did not feel comfortable to never know how much I really will pay. I want to understand things in detail, have fast user interaction and eventually display some real-time graphics. Hence, I decided to build my own deep learning work station. It’s just more relaxing and I think faster in developing deep learning solutions.&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;But which workstation shall I choose? What CPU? Which GPU will be sufficient?&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;p&gt;Very helpful resources:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://timdettmers.com/2020/09/07/which-gpu-for-deep-learning/&quot;&gt;Which GPU(s) to Get for Deep Learning: My Experience and Advice for Using GPUs in Deep Learning&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://rivesunder.gitlab.io/rl/2020/04/04/build_a_rl_pc_1.html&quot;&gt;Why Don’t You Build a RL Computer?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;workstation&quot;&gt;Workstation&lt;/h2&gt;
+
+&lt;p&gt;My current setup (good enough for the moment):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;AMD Ryzen 9 3900X (12 Cores, 3.80GHz, 64 MB)&lt;/li&gt;
+  &lt;li&gt;Asus Prime X570-PRO, AM4 Socket (upgradable to AMD Ryzen 9 3950X)&lt;/li&gt;
+  &lt;li&gt;RTX 2080 Ti 11GB&lt;/li&gt;
+  &lt;li&gt;Memory G.Skill Ripjaws V, DDR4, 2 x 16GB (current limitation, but easy to extend)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Total Costs including case, power supply, cooler and SSD: ~2200 CHF (2400 USD)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/workstation.jpg&quot; alt=&quot;My deep learning workstation &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nice. Looks small, but is still extendable.&lt;/p&gt;
+
+&lt;h2 id=&quot;in-detail&quot;&gt;In Detail&lt;/h2&gt;
+
+&lt;p&gt;I have been running my DDPG reinforcement learning project on CPU for quite some time. To speed up my training time I bought
+a RTX 2080 Ti. I spent 1000 CHF on the graphics card. But I was very excited to accelerate my training and make the next step forward in the project. However, after GPU installation and adjusting the code to run the training part on GPU - the big disappointment.&lt;/p&gt;
+
+&lt;p&gt;GPU utilization was only 2%. Why did I buy a GPU at all?&lt;/p&gt;
+
+&lt;p&gt;I figured, it is important to understand which code runs on CPU and which on GPU. In reinforcement learning the typical training loop looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;episode&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;episode_step&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;agent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict_action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;this_state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;next_state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;done&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;agent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;memorize_transition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;this_state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next_state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;this_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next_state&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;agent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A big portion of your code will run on CPU, unless you code up everything in Tensorflow and place the ops on the GPU. Especially the main loop and in particularly the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;step()&lt;/code&gt; function are typically written in Python and will run on CPU. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;step()&lt;/code&gt; function will retrieve all your states from the environment. It typically accesses libraries such as pandas. The functions with lots of Tensorflow ops are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;predict_action()&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;train()&lt;/code&gt;, whereas &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;train()&lt;/code&gt; will carry the heavy load, doing the back propagation on your model.&lt;/p&gt;
+
+&lt;p&gt;The following picture shows the mapping of CPU and GPU to the reinforcement learning functions very nicely&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/cpu_gpu_mapping.png&quot; alt=&quot;Mapping of CPU and GPU&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To better understand how Tensorflow assigns the ops use &lt;a href=&quot;https://www.tensorflow.org/guide/profiler&quot;&gt;Tensorflow Profiler&lt;/a&gt;. This is a screen shot from the &lt;em&gt;Trace View&lt;/em&gt; window on Tensorboard.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/trace_view_1.jpg&quot; alt=&quot;Trace with gaps&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Most Tensorflow ops run on GPU, but there is a big white gap in the chart of 2.7ms. This is the time the CPU spends in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;step()&lt;/code&gt;. As long as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;predict_action()&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;step()&lt;/code&gt; are run in sequence, the GPU cannot be utilized. That means you have to &lt;strong&gt;parallelize&lt;/strong&gt; your training. You can only parallelize your training if you have multiple CPU cores.&lt;/p&gt;
+
+&lt;p&gt;In my case, I simply spun off several python process in parallel to do hyperparameter optimization. Each process uses a different core. This increased the GPU utilization, because multiple processes can access the GPU simultaneously. Of course this also increased CPU and memory utilization. But that was the purpose.&lt;/p&gt;
+
+&lt;p&gt;There are other methods to parallelize training (distributed training):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1803.00933&quot;&gt;Distributed Prioritized Experience Replay (APE-X)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://deepmind.com/research/publications/Acme&quot;&gt;Acme: A new framework for distributed reinforcement learning&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.tensorflow.org/guide/distributed_training&quot;&gt;Distributed training with TensorFlow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;By parallelizing and separating exploring from learning it is possible to increase utilization of the GPU. However, the decisive factor that determines your GPU load is the model size. As larger your model is, as more computing power is required especially during backpropagation. My model was pretty small. The DDPG actor had only 1218 trainable parameters.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Total params: 1,232
+Trainable params: 1,218
+Non-trainable params: 14
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The critic a bit more:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Total params: 3,441
+Trainable params: 3,299
+Non-trainable params: 142
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is no comparison to a model used in object detection, where you have tens of thousands maybe even hundred thousands of parameters (i.e. Mask R-CNN or Retinanet). In such a use case (supervised training) a powerful GPU is key. In Rl it is the small size of your model that makes it hard to utilized the GPU fully.&lt;/p&gt;
+
+&lt;p&gt;If you parallelize your code it means you are loading a new Tensorflow environment with each process. This is very memory consuming on CPU and GPU (maybe there is a way to keep memory consumption low?). To ensure that not one single process uses up your GPU, make sure to enable this flag in tensorflow:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In consequence, it means - when you choose a GPU choose a GPU with lots of memory. Aside from the number of CPU cores, this will be most likely your second limiting factor in utilizing your workstation fully. In the end, it is the optimization of hardware and software that will help you to bring out the most power out of your system. Unfortunately, just buying expensive hardware and thinking things will run faster is a wrong assumption.&lt;/p&gt;
+
+&lt;h2 id=&quot;result&quot;&gt;Result&lt;/h2&gt;
+
+&lt;p&gt;I decided to choose the hardware in stages, starting with a decent CPU and main board socket that would allow me to upgrade later on. I stuck to AM4 for cost reason. I am still able to upgrade to a AMD Ryzen 9 3950X with 16 cores. Not a huge step, but some flexibility. The current Threadripper line up appeared too expensive too me, especially the new once with the sTRX4 socket. Investing in the older once with the TX4 socket, does not make sense. Hence, I chose AMD Ryzen 9 processor with a good price value. I started training without GPU! Only after I saw that increasing my model size I purchased a RTX 2080 Ti. I am able to integrate two GPU’s running in bridged mode if necessary.&lt;/p&gt;
+
+&lt;p&gt;In the mean time my reinforcement learning project is running at approximately 35% CPU and 35% GPU load. Not bad. I was able to balance the load symmetrically. However, my CPU memory is at its limit. I guess it is time to buy some more memory :-).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/cpu_memory_1.jpg&quot; alt=&quot;CPU Utilization&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Command: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;htop&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/gpu_1.jpg&quot; alt=&quot;GPU Utilization&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Command: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nvidia-smi&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Alternatively, you can use &lt;a href=&quot;https://linuxhint.com/install-and-configure-psensor-sensor-monitor/&quot;&gt;Psensor CPU and GPU monitoring tool on linux&lt;/a&gt; to monitor your hardware on Linux.&lt;/p&gt;
+
+&lt;p&gt;If you have any remarks, questions or suggestions, please do not hesitate and let me know by writing a comment below.&lt;/p&gt;
+
+&lt;p&gt;Thank you for reading this post.&lt;/p&gt;
+
+&lt;div class=&quot;wrap&quot;&gt;
+
+    
+        &lt;script src=&quot;  https://unpkg.com/showdown/dist/showdown.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+const GH_API_URL = 'https://api.github.com/repos/deeepwin/experience/issues/2/comments?per_page=100'; // ?client_id=&amp;client_secret=
+
+let request = new XMLHttpRequest();
+request.open( 'GET', GH_API_URL, true );
+request.onload = function() {
+	if ( this.status &gt;= 200 &amp;&amp; this.status &lt; 400 ) {
+		let response = JSON.parse( this.response );
+
+		for ( var i = 0; i &lt; response.length; i++ ) {
+			document.getElementById( 'gh-comments-list' ).appendChild( createCommentEl( response[ i ] ) );
+		}
+
+		if ( 0 === response.length ) {
+			document.getElementById( 'no-comments-found' ).style.display = 'block';
+		}
+	} else {
+		console.error( this );
+	}
+};
+
+function createCommentEl( response ) {
+	let user = document.createElement( 'a' );
+	user.setAttribute( 'href', response.user.url.replace( 'api.github.com/users', 'github.com' ) );
+	user.classList.add( 'user' );
+
+	let userAvatar = document.createElement( 'img' );
+	userAvatar.classList.add( 'avatar' );
+	userAvatar.setAttribute( 'src', response.user.avatar_url );
+
+	user.appendChild( userAvatar );
+
+	let commentLink = document.createElement( 'a' );
+	commentLink.setAttribute( 'href', response.html_url );
+	commentLink.classList.add( 'comment-url' );
+	commentLink.innerHTML = '#' + response.id + ' - ' + response.created_at;
+
+	let commentContents = document.createElement( 'div' );
+	commentContents.classList.add( 'comment-content' );
+	commentContents.innerHTML = response.body;
+	// Progressive enhancement.
+	if ( window.showdown ) {
+		let converter = new showdown.Converter();
+		commentContents.innerHTML = converter.makeHtml( response.body );
+	}
+
+	let comment = document.createElement( 'li' );
+	comment.setAttribute( 'data-created', response.created_at );
+	comment.setAttribute( 'data-author-avatar', response.user.avatar_url );
+	comment.setAttribute( 'data-user-url', response.user.url );
+
+	comment.appendChild( user );
+	comment.appendChild( commentContents );
+	comment.appendChild( commentLink );
+
+	return comment;
+}
+request.send();
+&lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;github-comments&quot;&gt;
+	&lt;h2&gt;Comments&lt;/h2&gt;
+	&lt;ul id=&quot;gh-comments-list&quot;&gt;&lt;/ul&gt;
+	&lt;p id=&quot;no-comments-found&quot;&gt;No comments found for this article.&lt;/p&gt;
+	&lt;p id=&quot;leave-a-comment&quot;&gt;Join the discussion for this article on &lt;a href=&quot;https://github.com/deeepwin/experience/issues/2&quot;&gt;this ticket&lt;/a&gt;. Comments appear on this page instantly.&lt;/p&gt;
+&lt;/div&gt;
+
+    
+&lt;/div&gt;</content><author><name></name></author><category term="hardware" /><summary type="html">Time to read this post: 5 mins</summary></entry></feed>
