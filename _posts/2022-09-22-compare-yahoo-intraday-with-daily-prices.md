@@ -1,3 +1,13 @@
+---
+layout: post
+title:  " Study comparing Yahoo Intraday with Daily Closing Price Data"
+date:   2022-09-22 17:49:22 +0100
+categories: data
+comments_id: 2
+---
+Time to read this post: 10 mins
+
+
 # Study comparing Yahoo Intraday with Daily Closing Price Data
 
 Author: Deeepwin  
