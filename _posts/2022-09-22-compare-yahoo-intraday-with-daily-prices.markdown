@@ -9,7 +9,7 @@ Time to read this post: 10 mins
 
 ## Background
 
-There is not much information on the internet in how Yahoo daily closing prices are calculated and how they compare to the intraday data. At the NYSE daily closing price is determine by an [closing auction] (https://www.nyse.com/article/nyse-closing-auction-insiders-guide). In this article we make an attempt to compare real data. The goal ist to compare:
+There is not much information on the internet in how Yahoo daily closing prices are calculated and how they compare to the intraday data. At the NYSE daily closing price is determine by an [closing auction](https://www.nyse.com/article/nyse-closing-auction-insiders-guide). In this article we make an attempt to compare real data. The goal ist to compare:
 
 1) The day end prices of historical intraday data such as 1m, 5m and 30m data to the daily closing prices
 2) Compare live intraday data with the historical intraday data
